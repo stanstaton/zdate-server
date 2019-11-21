@@ -50,7 +50,14 @@ router.get('/ouruser', (req,res) => {
 
 
 router.get('/:id', (req,res) => {
-    res.send('nothing to see here yet')
+    db.User.findOne({_id: req.params.id})
+    .then(foundUser => {
+        res.send(foundUser)
+    })
+    .catch(err => {
+        console.log(err)
+        res.send({message: 'sorry something fucked up'})
+    })
 })
 
 
