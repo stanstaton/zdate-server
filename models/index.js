@@ -2,7 +2,7 @@ let mongoose = require('mongoose')
 
 
 //connect to mongodb
-mongoose.connect(process.env.MONGOD_URI || 'mongod://localhost/zdate', {
+mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost/zdate', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true

@@ -7,6 +7,20 @@ router.get('/', (req,res) => {
     res.send('nothing here right now')
 })
 
+router.post('/newuser', (req, res) => {
+    db.User.create(req.body)
+    .then(newUser => {
+        res.send({newUser})
+    })
+})
+
+router.post('/ouruser', (req, res) => {
+    db.OurUser.create(req.body)
+    .then(newUser => {
+        res.send({newUser})
+    })
+})
+
 router.get('/ouruser', (req,res) => {
     res.send('stub route motherfucker')
 })
