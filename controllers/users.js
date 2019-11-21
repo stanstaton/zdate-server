@@ -9,12 +9,20 @@ router.get('/', (req,res) => {
     .then(foundUser => {
         res.send(foundUser)
     })
+    .catch(err => {
+        console.log(err)
+        res.send('something fucked up bro')
+    })
 })
 
 router.post('/newuser', (req, res) => {
     db.User.create(req.body)
     .then(newUser => {
         res.send({newUser})
+    })
+    .catch(err => {
+        console.log(err)
+        res.send('something fucked up bro')
     })
 })
 
@@ -23,12 +31,20 @@ router.post('/ouruser', (req, res) => {
     .then(newUser => {
         res.send({newUser})
     })
+    .catch(err => {
+        console.log(err)
+        res.send('something fucked up bro')
+    })
 })
 
 router.get('/ouruser', (req,res) => {
     db.OurUser.find()
     .then(foundUser => {
         res.send(foundUser)
+    })
+    .catch(err => {
+        console.log(err)
+        res.send('something fucked up bro')
     })
 })
 
