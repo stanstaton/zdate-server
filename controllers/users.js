@@ -4,7 +4,11 @@ require('dotenv').config()
 
 
 router.get('/', (req,res) => {
-    res.send('nothing here right now')
+    // res.send('nothing here right now')
+    db.User.find()
+    .then(foundUser => {
+        res.send(foundUser)
+    })
 })
 
 router.post('/newuser', (req, res) => {
@@ -22,7 +26,10 @@ router.post('/ouruser', (req, res) => {
 })
 
 router.get('/ouruser', (req,res) => {
-    res.send('stub route motherfucker')
+    db.OurUser.find()
+    .then(foundUser => {
+        res.send(foundUser)
+    })
 })
 
 
