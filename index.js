@@ -16,7 +16,7 @@ app.use(cors())
 app.use(morgan('dev'))
 
 //controllers
-app.use('users', require('./controllers/users'))
+app.use('/users', require('./controllers/users'))
 
 
 //routes

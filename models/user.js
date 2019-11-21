@@ -4,7 +4,7 @@ let userSchema = new mongoose.Schema({
     name: {
         type: String,
         require: true,
-        minlength: 5
+        minlength: 1
     },
     skills: Array,
     photo: {
