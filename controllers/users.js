@@ -7,7 +7,7 @@ router.get('/', (req,res) => {
     // res.send('nothing here right now')
     db.User.find()
     .then(foundUser => {
-        res.send(foundUser)
+        res.send({foundUser})
     })
     .catch(err => {
         console.log(err)
@@ -40,7 +40,7 @@ router.post('/ouruser', (req, res) => {
 router.get('/ouruser', (req,res) => {
     db.OurUser.find()
     .then(foundUser => {
-        res.send(foundUser)
+        res.send({foundUser})
     })
     .catch(err => {
         console.log(err)
@@ -52,7 +52,7 @@ router.get('/ouruser', (req,res) => {
 router.get('/:id', (req,res) => {
     db.User.findOne({_id: req.params.id})
     .then(foundUser => {
-        res.send(foundUser)
+        res.send({foundUser})
     })
     .catch(err => {
         console.log(err)
