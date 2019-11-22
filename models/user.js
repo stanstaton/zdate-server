@@ -15,7 +15,9 @@ let userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    stats: Array
+    stats: Array,
+    age: String,
+    gendder: String
 })
 
 
