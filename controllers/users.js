@@ -16,7 +16,15 @@ router.get('/', (req,res) => {
 })
 
 router.post('/newuser', (req, res) => {
-    db.User.create(req.body)
+    skills = req.body.skills
+    skillsArray = skills.split(',')
+    userObject = {
+        name: req.body.name,
+        skills: skillsArray,
+        photo: req.body.photo.toString(),
+        bio: req.body.bio
+    }
+    db.User.create(userObject)
     .then(newUser => {
         res.send({newUser})
     })
@@ -27,7 +35,15 @@ router.post('/newuser', (req, res) => {
 })
 
 router.post('/ouruser', (req, res) => {
-    db.OurUser.create(req.body)
+    skills = req.body.skills
+    skillsArray = skills.split(',')
+    userObject = {
+        name: req.body.name,
+        skills: skillsArray,
+        photo: req.body.photo.toString(),
+        bio: req.body.bio
+    }
+    db.OurUser.create(userObject)
     .then(newUser => {
         res.send({newUser})
     })
